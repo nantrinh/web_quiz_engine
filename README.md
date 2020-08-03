@@ -79,4 +79,4 @@ Settings:
 
 ### Solution
 
-See `*.java` files in [`src/main/java/example/web_quiz_engine`](https://github.com/nantrinh/web_quiz_engine/tree/lesson_1/src/main/java/example/web_quiz_engine).
+See files in [`src/main/java/example/web_quiz_engine`](https://github.com/nantrinh/web_quiz_engine/tree/lesson_1/src/main/java/example/web_quiz_engine).
