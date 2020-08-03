@@ -76,3 +76,7 @@ Settings:
 ### How to run
 
 `gradle bootRun`
+
+### Solution
+
+See `*.java` files in `src/main/java/example/web_quiz_engine`.
