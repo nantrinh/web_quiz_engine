@@ -1,31 +1,78 @@
 This project is modeled after the Web Quiz Engine project from [JetBrains Academy](https://hyperskill.org/).
 
-# Lesson 1
+# Lesson 2
 
 ## What this does
 
 This is a service that will accept HTTP requests at http://localhost:8889/api/quiz.
 The examples below use [httpie](https://httpie.org/) to demonstrate requests.
 
-### GET
+### Create a quiz
 
-`http GET http://localhost:8889/api/quiz`
+`http POST http://localhost:8889/api/quizzes title="The Java Logo" text="What is depicted on the Java logo?" options='["Robot","Tea leaf","Cup of coffee","Bug"]' answer=2`
 
 returns
 
 ```
 {
+  "id": 1,
+  "title": "The Java Logo",
+  "text": "What is depicted on the Java logo?",
+  "options": ["Robot","Tea leaf","Cup of coffee","Bug"],
+  "answer": 2
+}
+```
+
+All fields are required.
+The `id` field is a generated unique integer identifier for the quiz.
+
+### Get a quiz by id
+
+`http GET http://localhost:8889/api/quizzes/{id}`
+
+returns
+
+```
+{
+  "id": 1,
   "title": "The Java Logo",
   "text": "What is depicted on the Java logo?",
   "options": ["Robot","Tea leaf","Cup of coffee","Bug"]
 }
 ```
 
-### POST
+If the quiz does not exist, return the 404 status code.
 
-#### Correct answer
+### Get all quizzes
 
-`http POST http://localhost:8889/api/quiz?answer=2`
+`http GET http://localhost:8889/api/quizzes`
+
+returns a list of the existing quizzes.
+
+For example:
+
+```
+[
+  {
+    "id": 1,
+    "title": "The Java Logo",
+    "text": "What is depicted on the Java logo?",
+    "options": ["Robot","Tea leaf","Cup of coffee","Bug"]
+  },
+  {
+    "id": 2,
+    "title": "The Ultimate Question",
+    "text": "What is the answer to the Ultimate Question of Life, the Universe and Everything?",
+    "options": ["Everything goes right","42","2+2=4","11011100"]
+  }
+]
+```
+
+If no quizzes exist, return an empty array `[]`.
+
+### Solve a quiz
+
+`http POST /api/quizzes/{id}/solve?answer={answer}`, where answer refers to an index of an option from the options array.
 
 returns
 
@@ -36,11 +83,9 @@ returns
 }
 ```
 
-#### Incorrect answer
+if correct
 
-`http POST http://localhost:8889/api/quiz?answer=1` or any other value for answer
-
-returns
+or
 
 ```
 {
@@ -49,29 +94,13 @@ returns
 }
 ```
 
+if incorrect.
+
+If the quiz does not exist, return the `404` status code.
+
 ## How to implement
 
-### Spring Initialzr
-
-Use [Spring Initialzr](https://start.spring.io/) to generate a starter project.
-
-![spring_initialzr_settings](README_assets/images/spring_initialzr.png)
-
-Settings:
-
-- Gradle Project
-- Java
-- Spring Boot 2.3.2
-- Metadata
-  - Group: example
-  - Artifact: web_quiz_engine
-  - Name: web_quiz_engine
-  - Description: Web Quiz Engine API
-  - Package name: example.web_quiz_engine
-  - Packaging: Jar
-  - Java: 14
-- Dependencies
-  - Spring Web
+[TODO]
 
 ### How to run
 
@@ -79,4 +108,4 @@ Settings:
 
 ### Solution
 
-See files in [`src/main/java/example/web_quiz_engine`](https://github.com/nantrinh/web_quiz_engine/tree/lesson_1/src/main/java/example/web_quiz_engine).
+See files in [`src/main/java/example/web_quiz_engine`](https://github.com/nantrinh/web_quiz_engine/tree/lesson_2/src/main/java/example/web_quiz_engine).
