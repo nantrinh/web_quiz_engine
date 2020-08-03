@@ -12,4 +12,9 @@ public class QuizController{
         return "Hello World!";
     }
 
+    @GetMapping("/api/quiz")
+    public Quiz getQuiz() {
+        return Quiz.DEFAULT;
+    }
+
 }
