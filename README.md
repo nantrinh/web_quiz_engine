@@ -48,3 +48,27 @@ returns
   "feedback": "Wrong answer! Please, try again."
 }
 ```
+
+## How to implement
+
+### Spring Initialzr
+
+Use [Spring Initialzr](https://start.spring.io/) to generate a starter project.
+
+![spring_initialzr_settings](README_assets/images/spring_initialzr.png)
+
+Settings:
+
+- Gradle Project
+- Java
+- Spring Boot 2.3.2
+- Metadata
+  - Group: example
+  - Artifact: web_quiz_engine
+  - Name: web_quiz_engine
+  - Description: Web Quiz Engine API
+  - Package name: example.web_quiz_engine
+  - Packaging: Jar
+  - Java: 14
+- Dependencies
+  - Spring Web
