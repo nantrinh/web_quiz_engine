@@ -19,4 +19,8 @@ public class Quiz {
         this.options = options;
         this.answer = answer;
     }
+
+    public Boolean isAnswer(int answer) {
+        return this.answer == answer;
+    }
 }
