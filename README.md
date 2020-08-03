@@ -72,3 +72,7 @@ Settings:
   - Java: 14
 - Dependencies
   - Spring Web
+
+### How to run
+
+`gradle bootRun`
