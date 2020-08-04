@@ -5,16 +5,18 @@ Each lesson is located on a separate branch.
 - Lesson 1 (this branch)
 - [Lesson 2](https://github.com/nantrinh/web_quiz_engine/tree/lesson_2)
 
+The solutions for each lesson mainly uses concepts taught in that lesson. See [`Solution`](###Solution) for details.
+
 # Lesson 1
 
 ## What this does
 
-This is a service that will accept HTTP requests at http://localhost:8889/api/quiz.
+This is a service that will accept HTTP requests at http://localhost:8080/api/quiz.
 The examples below use [httpie](https://httpie.org/) to demonstrate requests.
 
 ### GET
 
-`http GET http://localhost:8889/api/quiz`
+`http GET http://localhost:8080/api/quiz`
 
 returns
 
@@ -28,9 +30,7 @@ returns
 
 ### POST
 
-#### Correct answer
-
-`http POST http://localhost:8889/api/quiz?answer=2`
+`http POST http://localhost:8080/api/quiz?answer={answer}` where `answer` is an integer
 
 returns
 
@@ -41,11 +41,9 @@ returns
 }
 ```
 
-#### Incorrect answer
+if the value passed in for `answer` is `2`
 
-`http POST http://localhost:8889/api/quiz?answer=1` or any other value for answer
-
-returns
+and
 
 ```
 {
@@ -53,6 +51,8 @@ returns
   "feedback": "Wrong answer! Please, try again."
 }
 ```
+
+otherwise.
 
 ## How to implement
 
@@ -85,3 +85,5 @@ Settings:
 ### Solution
 
 See files in [`src/main/java/example/web_quiz_engine`](https://github.com/nantrinh/web_quiz_engine/tree/lesson_1/src/main/java/example/web_quiz_engine).
+
+Note: The `static` keyword is not covered until lesson 2. The `static` keyword makes `DEFAULT`, `CORRECT`, and `WRONG` class variables, so you can access them directly from their respective classes, instead of creating an instance first.
