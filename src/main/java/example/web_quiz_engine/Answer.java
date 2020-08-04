@@ -1,12 +1,12 @@
 package example.web_quiz_engine;
 
 public class Answer {
-    public static final Answer CORRECT = new Answer(
+    public static Answer CORRECT = new Answer(
         true,
         "Congratulations, you're right!"
     );
 
-    public static final Answer WRONG = new Answer(
+    public static Answer WRONG = new Answer(
         false,
         "Wrong answer! Please, try again."
     );

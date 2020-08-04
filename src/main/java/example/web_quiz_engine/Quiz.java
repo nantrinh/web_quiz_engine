@@ -1,7 +1,7 @@
 package example.web_quiz_engine;
 
 public class Quiz {
-    public static final Quiz DEFAULT = new Quiz(
+    public static Quiz DEFAULT = new Quiz(
         "The Java Logo",
         "What is depicted on the Java logo?",
         new String[]{"Robot", "Tea leaf", "Cup of coffee", "Bug"},
