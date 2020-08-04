@@ -5,16 +5,18 @@ Each lesson is located on a separate branch.
 - [Lesson 1](https://github.com/nantrinh/web_quiz_engine/tree/lesson_1)
 - Lesson 2 (this branch)
 
-# Lesson 2
+The solution for each lesson mainly uses concepts taught in that lesson.
+
+# Lesson 2 (Work in Progress)
 
 ## What this does
 
-This is a service that will accept HTTP requests at http://localhost:8889/api/quiz.
+This is a service that will accept HTTP requests at http://localhost:8080/api/quiz.
 The examples below use [httpie](https://httpie.org/) to demonstrate requests.
 
 ### Create a quiz
 
-`http POST http://localhost:8889/api/quizzes title="The Java Logo" text="What is depicted on the Java logo?" options='["Robot","Tea leaf","Cup of coffee","Bug"]' answer=2`
+`http POST http://localhost:8080/api/quizzes title="The Java Logo" text="What is depicted on the Java logo?" options='["Robot","Tea leaf","Cup of coffee","Bug"]' answer=2`
 
 returns
 
@@ -33,7 +35,7 @@ The `id` field is a generated unique integer identifier for the quiz.
 
 ### Get a quiz by id
 
-`http GET http://localhost:8889/api/quizzes/{id}`
+`http GET http://localhost:8080/api/quizzes/{id}` where `id` is an integer
 
 returns
 
@@ -46,11 +48,13 @@ returns
 }
 ```
 
+if the quiz exists.
+
 If the quiz does not exist, return the 404 status code.
 
 ### Get all quizzes
 
-`http GET http://localhost:8889/api/quizzes`
+`http GET http://localhost:8080/api/quizzes`
 
 returns a list of the existing quizzes.
 
