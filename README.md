@@ -5,7 +5,7 @@ Each lesson is located on a separate branch.
 - Lesson 1 (this branch)
 - [Lesson 2](https://github.com/nantrinh/web_quiz_engine/tree/lesson_2)
 
-The solutions for each lesson mainly uses concepts taught in that lesson.
+The solution for each lesson mainly uses concepts taught in that lesson.
 
 # Lesson 1
 
