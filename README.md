@@ -5,9 +5,7 @@ Each lesson is located on a separate branch.
 - [Lesson 1](https://github.com/nantrinh/web_quiz_engine/tree/lesson_1)
 - Lesson 2 (this branch)
 
-The solution for each lesson mainly uses concepts taught in that lesson.
-
-# Lesson 2 (Work in Progress)
+# Lesson 2
 
 ## What this does
 
@@ -64,9 +62,9 @@ For example:
 [
   {
     "id": 1,
-    "title": "The Java Logo",
-    "text": "What is depicted on the Java logo?",
-    "options": ["Robot","Tea leaf","Cup of coffee","Bug"]
+    "title": "Food",
+    "text": "Which food does not start with the letter P?",
+    "options": ["Pizza","Pasta","Paneer","Burger"],
   },
   {
     "id": 2,
@@ -119,4 +117,6 @@ If the quiz does not exist, return the `404` status code.
 
 See files in [`src/main/java/example/web_quiz_engine`](https://github.com/nantrinh/web_quiz_engine/tree/lesson_2/src/main/java/example/web_quiz_engine).
 
-ResponseEntity represents an HTTP response, including headers, body, and status. While @ResponseBody puts the return value into the body of the response, ResponseEntity also allows us to add headers and status code.
+Many thanks to [Aleksandr](https://hyperskill.org/profile/1948858) and [Arjun](https://hyperskill.org/profile/45563522) for their posted solutions. I could not implement a working solution myself so referred to the solutions for guidance. I felt that the course did not prepare me adequately to do this exercise.
+
+NOTE: ResponseEntity represents an HTTP response, including headers, body, and status. While @ResponseBody puts the return value into the body of the response, ResponseEntity also allows us to add headers and status code.
