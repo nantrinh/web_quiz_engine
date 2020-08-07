@@ -16,17 +16,17 @@ The examples below use [httpie](https://httpie.org/) to demonstrate requests.
 
 ### Create a quiz
 
-`http POST http://localhost:8080/api/quizzes title="The Java Logo" text="What is depicted on the Java logo?" options='["Robot","Tea leaf","Cup of coffee","Bug"]' answer=2`
+`http POST http://localhost:8080/api/quizzes title="Food" text="Which food does not start with the letter P?" options:='["Pizza","Pasta","Paneer","Burger"]' answer=3`
 
 returns
 
 ```
 {
   "id": 1,
-  "title": "The Java Logo",
-  "text": "What is depicted on the Java logo?",
-  "options": ["Robot","Tea leaf","Cup of coffee","Bug"],
-  "answer": 2
+  "title": "Food",
+  "text": "Which food does not start with the letter P?",
+  "options": ["Pizza","Pasta","Paneer","Burger"],
+  "answer": 3
 }
 ```
 
@@ -37,18 +37,18 @@ The `id` field is a generated unique integer identifier for the quiz.
 
 `http GET http://localhost:8080/api/quizzes/{id}` where `id` is an integer
 
-returns
+returns a quiz if it exists, for example:
 
 ```
 {
   "id": 1,
-  "title": "The Java Logo",
-  "text": "What is depicted on the Java logo?",
-  "options": ["Robot","Tea leaf","Cup of coffee","Bug"]
+  "title": "Food",
+  "text": "Which food does not start with the letter P?",
+  "options": ["Pizza","Pasta","Paneer","Burger"],
 }
 ```
 
-if the quiz exists.
+Note that the answer is not included in the response.
 
 If the quiz does not exist, return the 404 status code.
 
@@ -118,3 +118,5 @@ If the quiz does not exist, return the `404` status code.
 ### Solution
 
 See files in [`src/main/java/example/web_quiz_engine`](https://github.com/nantrinh/web_quiz_engine/tree/lesson_2/src/main/java/example/web_quiz_engine).
+
+ResponseEntity represents an HTTP response, including headers, body, and status. While @ResponseBody puts the return value into the body of the response, ResponseEntity also allows us to add headers and status code.
