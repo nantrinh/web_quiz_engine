@@ -7,18 +7,19 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
+@RequestMapping("/api/quizzes")
 @RestController
 public class QuizController{
 
     private final QuizService quizService = new QuizService();
 
-    @PostMapping(value = "api/quizzes", consumes = "application/json")
+    @PostMapping
     public ResponseEntity<?> create(@RequestBody Quiz quiz) {
         quizService.create(quiz);
         return new ResponseEntity<>(quiz, HttpStatus.OK);
     }
 
-    @GetMapping("/api/quizzes/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<Quiz> getQuiz(@PathVariable int id) {
         Quiz quiz = quizService.read(id);
         if (quiz == null) {
@@ -28,10 +29,19 @@ public class QuizController{
         }
     }
 
-    @GetMapping("/api/quizzes")
+    @GetMapping
     public ResponseEntity<List<Quiz>> readAll() {
         final List<Quiz> allQuizzes = quizService.readAll();
         return new ResponseEntity<>(allQuizzes, HttpStatus.OK);
     }
 
+    @PostMapping("{id}/solve")
+    public ResponseEntity<Feedback> solve(@PathVariable int id, @RequestParam int answer) {
+        Quiz quiz = quizService.read(id);
+        if (quiz == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(new Feedback(quizService.solve(quiz, answer)), HttpStatus.OK);
+        }
+    }
 }

@@ -29,5 +29,9 @@ public class QuizService {
         return new ArrayList<>(QUIZ_REPO_MAP.values());
     }
 
+    public boolean solve(Quiz quiz, int answer) {
+        return quiz.isAnswer(answer);
+    }
+
 }
 
