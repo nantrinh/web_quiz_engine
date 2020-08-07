@@ -1,18 +1,27 @@
 package example.web_quiz_engine;
 
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 @RestController
 public class QuizController{
 
-    @GetMapping("/")
-    public String index() {
-        return "Hello World!";
+    private final QuizService quizService = new QuizService();
+
+    @GetMapping("/api/quizzes")
+    public ResponseEntity<List<Quiz>> getAll() {
+
+        quizService.addNextDummyQuiz();
+
+        final List<Quiz> allQuizzes = quizService.getAll();
+        return new ResponseEntity<>(allQuizzes, HttpStatus.OK);
     }
+
+    /* lesson 1 */
 
     @GetMapping("/api/quiz")
     public Quiz getQuiz() {
