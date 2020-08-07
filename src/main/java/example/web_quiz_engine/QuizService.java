@@ -14,15 +14,16 @@ public class QuizService {
     // to increment the id 
     private static final AtomicInteger QUIZ_ID = new AtomicInteger();
 
-    public List<Quiz> readAll() {
-        return new ArrayList<>(QUIZ_REPO_MAP.values());
-    }
-
     public Quiz create(Quiz quiz) {
         int id = QUIZ_ID.incrementAndGet();
         quiz.setId(id);
         QUIZ_REPO_MAP.put(id, quiz);
         return quiz;
     }
+
+    public List<Quiz> readAll() {
+        return new ArrayList<>(QUIZ_REPO_MAP.values());
+    }
+
 }
 
