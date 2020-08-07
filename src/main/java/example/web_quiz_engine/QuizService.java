@@ -21,6 +21,10 @@ public class QuizService {
         return quiz;
     }
 
+    public Quiz read(int id) {
+        return QUIZ_REPO_MAP.get(id);
+    }
+
     public List<Quiz> readAll() {
         return new ArrayList<>(QUIZ_REPO_MAP.values());
     }

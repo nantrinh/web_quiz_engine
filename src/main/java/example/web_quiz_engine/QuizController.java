@@ -18,6 +18,16 @@ public class QuizController{
         return new ResponseEntity<>(quiz, HttpStatus.OK);
     }
 
+    @GetMapping("/api/quizzes/{id}")
+    public ResponseEntity<Quiz> getQuiz(@PathVariable int id) {
+        Quiz quiz = quizService.read(id);
+        if (quiz == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(quiz, HttpStatus.OK);
+        }
+    }
+
     @GetMapping("/api/quizzes")
     public ResponseEntity<List<Quiz>> readAll() {
         final List<Quiz> allQuizzes = quizService.readAll();
