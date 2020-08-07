@@ -8,9 +8,10 @@ public class Quiz {
         2
     );
 
-    public String title;
-    public String text;
-    public String[] options;
+    private int id;
+    private String title;
+    private String text;
+    private String[] options;
     private int answer;
 
     public Quiz(String title, String text, String[] options, int answer) {
@@ -22,5 +23,25 @@ public class Quiz {
 
     public Boolean isAnswer(int answer) {
         return this.answer == answer;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String[] getOptions() {
+        return options;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
