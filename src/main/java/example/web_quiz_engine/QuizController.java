@@ -13,13 +13,17 @@ public class QuizController{
     private final QuizService quizService = new QuizService();
 
     @GetMapping("/api/quizzes")
-    public ResponseEntity<List<Quiz>> getAll() {
-
-        quizService.addNextDummyQuiz();
-
-        final List<Quiz> allQuizzes = quizService.getAll();
+    public ResponseEntity<List<Quiz>> readAll() {
+        final List<Quiz> allQuizzes = quizService.readAll();
         return new ResponseEntity<>(allQuizzes, HttpStatus.OK);
     }
+
+    @PostMapping(value = "api/quizzes", consumes = "application/json")
+    public ResponseEntity<?> create(@RequestBody Quiz quiz) {
+        quizService.create(quiz);
+        return new ResponseEntity<>(quiz, HttpStatus.OK);
+    }
+
 
     /* lesson 1 */
 
