@@ -1,5 +1,7 @@
 package example.web_quiz_engine;
 
+import com.fasterxml.jackson.annotation.*;
+
 public class Quiz {
     public static Quiz DEFAULT = new Quiz(
         "The Java Logo",
@@ -21,8 +23,18 @@ public class Quiz {
         this.answer = answer;
     }
 
-    public Boolean isAnswer(int answer) {
-        return this.answer == answer;
+    @JsonIgnore
+    @JsonProperty
+    public int getAnswer() {
+        return answer;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String[] getOptions() {
+        return options;
     }
 
     public String getText() {
@@ -33,15 +45,9 @@ public class Quiz {
         return title;
     }
 
-    public String[] getOptions() {
-        return options;
-    }
-
-    public int getId() {
-        return id;
-    }
-
     public void setId(int id) {
         this.id = id;
     }
+
+
 }

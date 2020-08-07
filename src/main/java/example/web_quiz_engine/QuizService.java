@@ -30,7 +30,7 @@ public class QuizService {
     }
 
     public boolean solve(Quiz quiz, int answer) {
-        return quiz.isAnswer(answer);
+        return quiz.getAnswer() == answer;
     }
 
 }
