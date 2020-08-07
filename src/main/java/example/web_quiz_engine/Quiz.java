@@ -3,12 +3,6 @@ package example.web_quiz_engine;
 import com.fasterxml.jackson.annotation.*;
 
 public class Quiz {
-    public static Quiz DEFAULT = new Quiz(
-        "The Java Logo",
-        "What is depicted on the Java logo?",
-        new String[]{"Robot", "Tea leaf", "Cup of coffee", "Bug"},
-        2
-    );
 
     private int id;
     private String title;
